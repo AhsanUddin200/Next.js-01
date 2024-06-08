@@ -27,3 +27,15 @@ export async function PUT(request, response) {
 
     return NextResponse.json({ result:payload, success:true},{status:200} );
 }
+
+
+export  function DELETE(request, response) {
+    let id = response.params.id;
+    console.log(id)
+    if (id) {
+        return response.json({ result: "User Deleted", success: true }, {status:200});
+    } else {
+        return response.json({ result: "User not deleted. Something is wrong", success: false }, {status:401});
+    }
+}
+

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import React from "react";
+import DeleteUser from "../utility/DeleteUser";
 
 async function getUsers() {
   let data = await fetch("http://localhost:3000/user");
@@ -27,6 +28,7 @@ export default async function page() {
               Edit
             </Link>
           </span>
+          <DeleteUser id={item.id} />
         </div>
       ))}
     </div>
