@@ -15,3 +15,35 @@ export async function GET() {
 
   return NextResponse.json({ result: data });
 }
+
+
+//For static data
+// export async function POST(requset){
+  
+//   await mongoose.connect(connectionStr)  // Here Making connection
+//   let product = new Product({
+//     name:"Note 19",
+//     company:"Redme",
+//     color:"Grey",
+//     price:"$809"
+//   })
+
+//   //console.log(product)
+
+//   const result = await product.save();  //Save from here
+
+//   return NextResponse.json({result,success:true}) //result of data
+// }
+
+
+export async function POST(requset){
+  const payload = await requset.json();
+  await mongoose.connect(connectionStr)  // Here Making connection
+  let product = new Product(payload)
+
+  //console.log(product)
+
+  const result = await product.save();  //Save from here
+
+  return NextResponse.json({result,success:true}) //result of data
+}
