@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link";
 import { useState } from "react";
 
 export default function Page() {
@@ -69,6 +70,7 @@ export default function Page() {
         />
 
         <button onClick={addproduct} className="mt-5 bg-gray-600 px-5 rounded-md text-white hover:scale-90 hover:text-175">Click Here</button>
+        <Link className="mt-12  w-full text-right" href="/" >Go to main Page</Link>
       </div>
     </div>
   );
