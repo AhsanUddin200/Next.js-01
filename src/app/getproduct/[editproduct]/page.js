@@ -45,6 +45,18 @@ export default function Page(props) {
     }
   };
 
+  updateproduct = async()=>{
+    let productId = props.params.editproduct
+    let result = await fetch("http://localhost:3000/api/products"+productId,{
+        method = "PUT";
+        body:JSON.stringify({name,price,color,company,category})
+    })
+  }
+  result = await data.json()
+  if(data.result){
+    alert("Product Updated")
+  }
+
   return (
     <div>
       <h1 className=" flex justify-center mt-4 mb-4 ">Update Product</h1>
@@ -89,8 +101,9 @@ export default function Page(props) {
         />
 
         <button
-          onClick={editproduct}
+       
           className="mt-5 bg-gray-600 px-5 rounded-md text-white hover:scale-90 hover:text-175"
+          onClick={updateproduct}
         >
           Update Here
         </button>
