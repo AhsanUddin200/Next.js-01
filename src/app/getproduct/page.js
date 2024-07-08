@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React, { useState, useEffect } from "react";
 
 const getProducts = async () => {
@@ -6,7 +6,7 @@ const getProducts = async () => {
   data = await data.json();
 
   if (data.success) {
-    return data.result; 
+    return data.result;
   } else {
     return [];
   }
@@ -22,7 +22,7 @@ export default function Page() {
     };
 
     fetchData();
-  }, []); 
+  }, []);
 
   return (
     <div>
@@ -45,7 +45,11 @@ export default function Page() {
                 <td className="px-4 py-2">{item.price}</td>
                 <td className="px-4 py-2">{item.color}</td>
                 <td className="px-4 py-2">{item.company}</td>
-                <td className="px-4 py-2">{item.category}</td>
+                <td>
+                  {" "}
+                  <Link href={"getproduct/" + item._id}>Edit</Link>
+                </td>
+                
               </tr>
             ))}
           </tbody>
