@@ -1,8 +1,9 @@
 "use client";
 import React, { useState, useEffect } from "react";
+import DeleteProduct from "../lib/DeleteProduct";
 
 const getProducts = async () => {
-  let data = await fetch("http://localhost:3000/api/products");
+  let data = await fetch("http://localhost:3000/api/products",{cache:"no-cache"});
   data = await data.json();
 
   if (data.success) {
@@ -48,6 +49,7 @@ export default function Page() {
                 <td>
                   {" "}
                   <Link href={"getproduct/" + item._id}>Edit</Link>
+                  <DeleteProduct id={item._id}/>
                 </td>
                 
               </tr>
