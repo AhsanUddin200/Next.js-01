@@ -7,6 +7,7 @@ export default function Home() {
      <div className="space-x-4">
         <Link href="/addproduct">Add Product</Link>
         <Link href="/getproduct">Get Product</Link>
+         <Link href="/image">Image Here</Link>
       </div>
       
     </main>
